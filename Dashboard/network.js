@@ -1,0 +1,2 @@
+var numHiddenLayers;
+var layerNodes = [];
