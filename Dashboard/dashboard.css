@@ -41,3 +41,11 @@
 #lower-bar{
     height: 25%;
 }
+
+.hyperparameter-category{
+    margin: 0px;
+}
+
+.hyperparameter{
+    margin: 0px;
+}
