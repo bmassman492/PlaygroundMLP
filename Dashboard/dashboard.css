@@ -49,3 +49,11 @@
 .hyperparameter{
     margin: 0px;
 }
+
+#domain-explanation{
+    height: 50%;
+}
+
+#results{
+    height: 50%;
+}

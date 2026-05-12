@@ -5,29 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dashboard.css";>
     <title>PlaygroundMLP - Test Multilayer Perceptron Hyperparameters</title>
+    <script src="dashboard.js"></script>
 </head>
 <body>
     <page id="page">
         <div id="top-bar">
             <h1 id="title">PlaygroundMLP</h1>
+                <p>Test Multilayer Perceptron Hyperparameters</p>
         </div>
         <div id="middle-bar">
             <div id="left-column">
                 <h2 class="hyperparameter-category">Architecture:</h2>
-                <p class="hyperparameter">Number of hidden layers:</p>
-                    <input type="number" id="hidden-layers" min="1" max="10" value="3">
+                <p class="hyperparameter">Number of hidden layers:
+                    <input type="number" id="hidden-layers-input" min="1" max="10" value="3">
+                </p>
+                <div id="layer-nodes-container"></div>
                 <h2 class="hyperparameter-category">Training:</h2>
                 <p class="hyperparameter">Learning rate:</p>
                 <p class="hyperparameter">Batch size:</p>
-                <p class="hyperparameter">Number of hidden epochs:</p>
+                <p class="hyperparameter">Number of epochs:</p>
                 <h2 class="hyperparameter-category">Initialization:</h2>
                 <p class="hyperparameter">Weight initialization method:</p>
                 <p class="hyperparameter">Bias initialization method:</p>
                 <h2 class="hyperparameter-category">Activation:</h2>
                 <p class="hyperparameter">Activation function:</p>
             </div>
-            <div id='right-column'>
-                <h1>middle bar right</h1>
+            <div id="right-column">
+                <div id="domain-explanation">
+                    <h1>domain explanation</h1>
+                </div>
+                <div id="results">
+                    <div id="results
+                    <button>Train Model and Test Accuracy</button>
+                </div>
+        
             </div>
         </div>
         <div id="lower-bar">
