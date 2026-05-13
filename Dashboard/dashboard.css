@@ -1,65 +1,197 @@
+:root {
+    --primary: rgb(15, 106, 10);
+    --primary-light: rgba(15, 106, 10, 0.08);
+    --border: rgba(15, 106, 10, 0.18);
+    --top-border: rgba(15, 106, 10);
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --bg: #fff;
+    --radius: 4px;
+    --light-primary-bg: rgba(15, 106, 10, 0.5);
+}
+
 * {
     box-sizing: border-box;
-
-}
-
-#title{
     margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-#page{
+body, html {
+    height: 100%;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--bg);
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+p {
+    line-height: 1.5;
+}
+
+input, select {
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 7px;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius);
+}
+
+#page {
     height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-#top-bar{
+#top-bar {
     width: 100%;
-    height: 45px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    border-bottom: 1px solid var(--top-border);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.50);
+    z-index: 10;
+}
+
+#title-container {
+    flex: 1;
+}
+
+#title {
+    font-size: 20px;
+    letter-spacing: -0.3px;
+    color: var(--primary);
+}
+
+#navigate-button {
+    display: flex;
+    align-items: center;
+}
+
+#learn {
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    font-weight: 500;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .75);
+}
+
+#middle-bar {
     display: flex;
     flex-direction: row;
-
-}
-
-#middle-bar{
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    width: 100%;
-}
-
-#left-column{
-    width: 50%;
-}
-
-#right-column{
-    width: 50%;
-}
-
-.hyperparameter-category{
-    margin: 0px;
-}
-
-.hyperparameter{
-    margin: 0px;
-}
-
-#domain-explanation{
-    height: 50%;
+    flex: 1;
     overflow: hidden;
+}
+
+#left-column {
+    width: 50%;
+    padding: 16px;
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    box-shadow: 5px 0 5px rgba(0, 0, 0, .75);
+}
+
+#right-column {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hyperparameter-category {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--primary);
+    margin-top: 18px;
+    margin-bottom: 6px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border);
+}
+
+.hyperparameter-category:first-child {
+    margin-top: 0;
+}
+
+.hyperparameter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 0;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.hyperparameter input,
+.hyperparameter select {
+    width: 175px;
+}
+
+#results {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: var(--light-primary-bg);
+    border-bottom: 1px solid var(--border);
+}
+
+#domain-explanation {
+    flex: 1;
+    overflow: hidden;
+    padding: 16px;
+    background-color: var(--light-primary-bg);
 }
 
 #domain-explanation img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-#results{
-    height: 50%;
+#d-explanation-png{
+    
 }
 
-#title-container{
+#train-button {
+    background: var(--primary);
+    color: #fff;
+    padding: 9px 20px;
+    font-weight: 500;
     width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .75);
+}
+
+#accuracy-text {
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-left: auto;
+    margin-right: auto;
 }

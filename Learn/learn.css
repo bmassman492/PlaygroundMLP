@@ -1,13 +1,103 @@
-#top-bar{
-    display: flex;
-    flex-direction: row;
-    height: 45px;
+
+:root {
+    --primary: rgb(15, 106, 10);
+    --primary-light: rgba(15, 106, 10, 0.08);
+    --border: rgba(15, 106, 10, 0.18);
+    --top-border: rgba(15, 106, 10);
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --bg: #fff;
+    --radius: 4px;
+    --light-primary-bg: rgba(15, 106, 10, 0.5);
 }
 
-#title{
-    margin: 0px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#top-bar{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    border-bottom: 1px solid var(--top-border);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.50);
+    z-index: 10;
+}
+
+#title {
+    font-size: 20px;
+    letter-spacing: -0.3px;
+    color: var(--primary);
 }
 
 #title-container{
-    width: 80%;
+    flex: 1;
+}
+
+#dashboard{
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    font-weight: 500;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, .75);
+}
+
+#midsection {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 2%;
+    padding: 3%;
+    height: calc(100vh - 50px);
+}
+
+.unclicked-button {
+    width: 20%;
+    aspect-ratio: 1;
+    background: rgba(0,0,0,0.05);
+    color: var(--primary);
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    border-radius: var(--radius);
+    box-shadow: 4px 4px 5px rgba(0,0,0,0.25);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
+
+#popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+#popup {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    min-width: 300px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius);
 }
