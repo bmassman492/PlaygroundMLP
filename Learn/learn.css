@@ -1,0 +1,14 @@
+#top-bar{
+    display: flex;
+    flex-direction: row;
+    height: 45px;
+    background-color: gold;
+}
+
+#title{
+    margin: 0px;
+}
+
+#title-container{
+    width: 80%;
+}

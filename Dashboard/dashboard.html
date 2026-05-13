@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dashboard.css";>
     <title>PlaygroundMLP - Test Multilayer Perceptron Hyperparameters</title>
-    <script src="dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script type="module" src="dashboard.js"></script>
 </head>
 <body>
     <page id="page">
         <div id="top-bar">
+            <div id="title-container">
             <h1 id="title">PlaygroundMLP</h1>
-                <p>Test Multilayer Perceptron Hyperparameters</p>
+            </div>
+            <div id="navigate-button">
+                <button id="learn" onclick="window.location.href='../Learn/learn.html'">Learn</button>
+            </div>
         </div>
         <div id="middle-bar">
             <div id="left-column">
@@ -21,28 +26,52 @@
                 </p>
                 <div id="layer-nodes-container"></div>
                 <h2 class="hyperparameter-category">Training:</h2>
-                <p class="hyperparameter">Learning rate:</p>
-                <p class="hyperparameter">Batch size:</p>
-                <p class="hyperparameter">Number of epochs:</p>
+                <p class="hyperparameter">Learning rate:
+                    <input type="number" id="learning-rate-input" min="0.0001" max="1" step="0.0001" value="0.01">
+                </p>
+                <p class="hyperparameter">Batch size:
+                    <input type="number" id="batch-size-input" min="1" max="512" step="1" value="128">
+                </p>
+                <p class="hyperparameter">Number of epochs:
+                    <input type="number" id="epochs-input" min="1" max="100" step="1" value="10">
+                </p>
                 <h2 class="hyperparameter-category">Initialization:</h2>
-                <p class="hyperparameter">Weight initialization method:</p>
-                <p class="hyperparameter">Bias initialization method:</p>
+                <p class="hyperparameter">Weight initialization method:
+                    <select id="weight-init-select">
+                        <option value="xavier-uniform">Xavier/Glorot Uniform</option>
+                        <option value="xavier-normal">Xavier/Glorot Normal</option>
+                        <option value="he-uniform">He Uniform</option>
+                        <option value="random-uniform">Random Uniform</option>
+                        <option value="zero">Zero</option>
+                    </select>
+                </p>
+                <p class="hyperparameter">Bias initialization method:
+                    <select id="bias-init-select">
+                        <option value="zero">Zero</option>
+                        <option value="constant">Constant (0.01)</option>
+                        <option value="random-uniform">Random Uniform</option>
+                    </select>
+                </p>
                 <h2 class="hyperparameter-category">Activation:</h2>
-                <p class="hyperparameter">Activation function:</p>
+                <p class="hyperparameter">Activation function:
+                    <select id="activation-select">
+                        <option value="relu">Standard ReLU</option>
+                        <option value="sigmoid">Sigmoid</option>
+                        <option value="leaky-relu">Leaky ReLU (alpha = 0.01)</option>
+                        <option value="tanh">Tanh</option>
+                    </select>
+                </p>
             </div>
             <div id="right-column">
                 <div id="domain-explanation">
-                    <h1>domain explanation</h1>
+                    <img src="../images/PlaygroundMLP domain explanation.png" alt="Domain explanation">
                 </div>
                 <div id="results">
-                    <div id="results
-                    <button>Train Model and Test Accuracy</button>
+                    <button id="train-button">Train Model and Test Accuracy</button>
+                    <p id="accuracy-text"></p>
                 </div>
         
             </div>
-        </div>
-        <div id="lower-bar">
-            <h1>lower bar</h1>
         </div>
     </page>
 </body>
