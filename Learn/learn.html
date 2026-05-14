@@ -18,21 +18,21 @@
             </div>
         </div>
         <div id="midsection">
-            <button class="unclicked-button" onclick="openPopup(1)">1</button>
-            <button class="unclicked-button" onclick="openPopup(2)">2</button>
-            <button class="unclicked-button" onclick="openPopup(3)">3</button>
-            <button class="unclicked-button" onclick="openPopup(4)">4</button>
-            <button class="unclicked-button" onclick="openPopup(5)">5</button>
-            <button class="unclicked-button" onclick="openPopup(6)">6</button>
-            <button class="unclicked-button" onclick="openPopup(7)">7</button>
-            <button class="unclicked-button" onclick="openPopup(8)">8</button>
+            <button class="unclicked-button" data-id="1" onclick="openPopup(1)">What Is A Multilayer Perceptron?</button>
+            <button class="unclicked-button" data-id="2" onclick="openPopup(2)">Hidden Layers</button>
+            <button class="unclicked-button" data-id="3" onclick="openPopup(3)">Nodes Per Layer</button>
+            <button class="unclicked-button" data-id="4" onclick="openPopup(4)">Learning Rate</button>
+            <button class="unclicked-button" data-id="5" onclick="openPopup(5)">Batch Size</button>
+            <button class="unclicked-button" data-id="6" onclick="openPopup(6)">Epochs</button>
+            <button class="unclicked-button" data-id="7" onclick="openPopup(7)">Weight Initialization</button>
+            <button class="unclicked-button" data-id="8" onclick="openPopup(8)">Bias Initialization</button>
         </div>
 
         <div id="popup-overlay" onclick="closePopup()">
             <div id="popup" onclick="event.stopPropagation()">
                 <h2 id="popup-title"></h2>
-                <p id="popup-body"></p>
-                <button onclick="closePopup()">Close</button>
+                <div id="popup-body"></div>
+                <button id="popup-close" onclick="closePopup()">Close</button>
             </div>
         </div>
 
