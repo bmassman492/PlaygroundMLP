@@ -1,3 +1,6 @@
+
+//This code contains all of the popup content for the learn section. It is mostly comprised of text explanations of the various hyperparameters and the importance of their optimization.
+
 const popupContent = {
     1: {
         title: 'What Is A Multilayer Perceptron?',
@@ -46,6 +49,8 @@ const popupContent = {
     },
 };
 
+
+//changes button class to clicked-button upon clicking to change its color
 function markClicked(id) {
     const clicked = JSON.parse(sessionStorage.getItem('clickedButtons') || '[]');
     if (!clicked.includes(id)) {
@@ -58,6 +63,7 @@ function markClicked(id) {
     });
 }
 
+//event handler function to oppen the corresponding popup when a learn button is pressed
 function openPopup(id) {
     markClicked(id);
     const content = popupContent[id];
@@ -66,6 +72,7 @@ function openPopup(id) {
     document.getElementById('popup-overlay').style.display = 'flex';
 }
 
+//initializes the correct learn button class upon DOM content loading to indicate which have been visited (data on which have been clicked persists in session storage)
 document.addEventListener('DOMContentLoaded', () => {
     const clicked = JSON.parse(sessionStorage.getItem('clickedButtons') || '[]');
     document.querySelectorAll('.unclicked-button, .clicked-button').forEach(btn => {
@@ -74,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//handles exiting a popup
 function closePopup() {
     document.getElementById('popup-overlay').style.display = 'none';
 }

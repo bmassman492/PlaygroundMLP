@@ -1,10 +1,13 @@
+//import the training and testing data for the number classification problem
 import { MnistData } from './mnist.js';
 import { trainAndTest } from './network.js';
 
+//calls functions that must be run on DOM content load
 document.addEventListener('DOMContentLoaded', function() {
     const layersInput = document.getElementById('hidden-layers-input');
     const container = document.getElementById('layer-nodes-container');
 
+    //ensures text input values remain within their minimum/maximum range
     function clampInput(input) {
         const min = parseFloat(input.min);
         const max = parseFloat(input.max);
@@ -14,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (val > max) input.value = max;
     }
 
+    //updates the number of "number of nodes in hidden layer n" inputs shown to match the specified number of hidden layers
     function updateLayerRows() {
         const count = Math.min(10, Math.max(1, parseInt(layersInput.value) || 1));
         const existing = container.querySelectorAll('.layer-node-row');
@@ -41,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
     layersInput.addEventListener('input', updateLayerRows);
     updateLayerRows();
 
+
+    //called when the user clicks "train and test model". Grabs contents of user inputs and creates a JSON object to store values
     function collectHyperparams() {
         return {
             hiddenLayers:  parseInt(document.getElementById('hidden-layers-input').value),
@@ -54,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     }
 
+    //event handling for training and testing button
     document.getElementById('train-button').addEventListener('click', async () => {
         const statusText = document.getElementById('accuracy-text');
         const button = document.getElementById('train-button');

@@ -1,3 +1,4 @@
+//maps the JSON hyperparameters to the exact parameter name that tensorflow expects
 const WEIGHT_INIT = {
     'xavier-uniform': 'glorotUniform',
     'xavier-normal':  'glorotNormal',
@@ -6,12 +7,14 @@ const WEIGHT_INIT = {
     'zero':           'zeros'
 };
 
+//maps selected bias initialization method to the expected parameter input for tensorflow
 function getBiasInit(key) {
     if (key === 'constant')      return tf.initializers.constant({ value: 0.01 });
     if (key === 'random-uniform') return 'randomUniform';
     return 'zeros';
 }
 
+//adds an additional hidden layer to the network based on specified hyperparameters
 function addLayer(model, units, activation, kernelInit, biasInit, inputShape = null) {
     const config = { units, kernelInitializer: kernelInit, biasInitializer: biasInit };
     if (inputShape) config.inputShape = inputShape;
@@ -20,6 +23,9 @@ function addLayer(model, units, activation, kernelInit, biasInit, inputShape = n
     if (activation === 'leaky-relu') model.add(tf.layers.leakyReLU({ alpha: 0.01 }));
 }
 
+//this function is called when the user selects "train and test network", and builds the entire network using the previously defined functions, 
+// passing in the training and testing data as parameters. 
+// It then trains and tests the model on the split data, using hyperparameters such as number of epochs and batch size to speficially define the behavior of this function.
 export async function trainAndTest(hyperparams, trainData, testData, onProgress) {
     const { hiddenLayers, nodesPerLayer, learningRate, batchSize, epochs, weightInit, biasInit, activation } = hyperparams;
 
